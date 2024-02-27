@@ -1,0 +1,22 @@
+{
+  "name": "js-base64-bz2-decode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "deploy": "gh-pages -d src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastiangolian/js-base64-bz2-decode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebastiangolian/js-base64-bz2-decode/issues"
+  },
+  "homepage": "https://github.com/sebastiangolian/js-base64-bz2-decode#readme",
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  }
+}
