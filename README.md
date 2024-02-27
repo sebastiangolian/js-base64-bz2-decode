@@ -2,4 +2,4 @@
 
 ## Test app
 
-[cors-test](https://sebastiangolian.github.io/cors-test)
+[cors-test](https://sebastiangolian.github.io/js-base64-bz2-decode)
