@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js-base64-bz2-decode</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      #jsonForm {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        resize: vertical;
+      }
+
+      input[type="button"] {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type="button"]:hover {
+        background-color: #45a049;
+      }
+
+      #result {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+      #result h3 {
+        margin-top: 0;
+        color: #333;
+      }
+
+      pre {
+        white-space: pre-wrap;
+      }
+
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>js-base64-bz2-decode</h2>
+
+    <form id="jsonForm">
+      <label for="compressedData">Compressed data:</label><br />
+      <textarea
+        id="compressedData"
+        name="compressedData"
+        rows="4"
+        cols="50"
+      ></textarea
+      ><br /><br />
+      <input type="button" value="Decode" onclick="decodeAndDisplay()" />
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+      function decodeAndDisplay() {
+        var compressedData = document.getElementById("compressedData").value;
+        var resultDiv = document.getElementById("result");
+
+        try {
+          var decodedData = atob(compressedData);
+          var decompressedData = BZLib.decompress(decodedData);
+          var jsonData = JSON.parse(decompressedData);
+
+          resultDiv.innerHTML =
+            "<h3>Wynik:</h3><pre>" +
+            JSON.stringify(jsonData, null, 2) +
+            "</pre>";
+        } catch (error) {
+          resultDiv.innerHTML =
+            "<p class='error'>Błąd: " + error.message + "</p>";
+        }
+      }
+    </script>
+  </body>
+</html>
